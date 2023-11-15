@@ -37,9 +37,11 @@ return require('packer').startup(function(use)
 
         }
     }
-    use('towolf/vim-helm')
-    use('mrjosh/helm-ls')
-
-
+    use {
+        'pearofducks/ansible-vim',
+        run = './UltiSnips/generate.sh'
+    }
+    use('nvim-lua/popup.nvim')
+    use('frenchtoasters/telescope-kubectl.nvim')
 end)
 

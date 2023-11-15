@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/ilya/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["ansible-vim"] = {
+    loaded = true,
+    path = "/home/ilya/.local/share/nvim/site/pack/packer/start/ansible-vim",
+    url = "https://github.com/pearofducks/ansible-vim"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/ilya/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
@@ -93,11 +98,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/ilya/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/theprimeagen/harpoon"
-  },
-  ["helm-ls"] = {
-    loaded = true,
-    path = "/home/ilya/.local/share/nvim/site/pack/packer/start/helm-ls",
-    url = "https://github.com/mrjosh/helm-ls"
   },
   ["lsp-zero.nvim"] = {
     loaded = true,
@@ -139,10 +139,20 @@ _G.packer_plugins = {
     path = "/home/ilya/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["popup.nvim"] = {
+    loaded = true,
+    path = "/home/ilya/.local/share/nvim/site/pack/packer/start/popup.nvim",
+    url = "https://github.com/nvim-lua/popup.nvim"
+  },
   ripgrep = {
     loaded = true,
     path = "/home/ilya/.local/share/nvim/site/pack/packer/start/ripgrep",
     url = "https://github.com/BurntSushi/ripgrep"
+  },
+  ["telescope-kubectl.nvim"] = {
+    loaded = true,
+    path = "/home/ilya/.local/share/nvim/site/pack/packer/start/telescope-kubectl.nvim",
+    url = "https://github.com/frenchtoasters/telescope-kubectl.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
@@ -158,11 +168,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/ilya/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
-  },
-  ["vim-helm"] = {
-    loaded = true,
-    path = "/home/ilya/.local/share/nvim/site/pack/packer/start/vim-helm",
-    url = "https://github.com/towolf/vim-helm"
   }
 }
 
