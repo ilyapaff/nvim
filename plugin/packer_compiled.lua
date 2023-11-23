@@ -114,6 +114,27 @@ _G.packer_plugins = {
     path = "/home/ilya/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["neo-tree.nvim"] = {
+    loaded = true,
+    path = "/home/ilya/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
+    url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
+  },
+  ["neovim-project"] = {
+    config = { "\27LJ\2\nM\0\0\4\0\5\0\b6\0\0\0009\0\1\0009\0\2\0\18\2\0\0009\0\3\0'\3\4\0B\0\3\1K\0\1\0\fglobals\vappend\19sessionoptions\bopt\bvim\0" },
+    loaded = true,
+    path = "/home/ilya/.local/share/nvim/site/pack/packer/start/neovim-project",
+    url = "https://github.com/coffebar/neovim-project"
+  },
+  ["neovim-session-manager"] = {
+    loaded = true,
+    path = "/home/ilya/.local/share/nvim/site/pack/packer/start/neovim-session-manager",
+    url = "https://github.com/Shatur/neovim-session-manager"
+  },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/home/ilya/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/ilya/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -128,6 +149,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/ilya/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/home/ilya/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -149,11 +175,6 @@ _G.packer_plugins = {
     path = "/home/ilya/.local/share/nvim/site/pack/packer/start/ripgrep",
     url = "https://github.com/BurntSushi/ripgrep"
   },
-  ["telescope-kubectl.nvim"] = {
-    loaded = true,
-    path = "/home/ilya/.local/share/nvim/site/pack/packer/start/telescope-kubectl.nvim",
-    url = "https://github.com/frenchtoasters/telescope-kubectl.nvim"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/ilya/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -172,6 +193,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: neovim-project
+time([[Config for neovim-project]], true)
+try_loadstring("\27LJ\2\nM\0\0\4\0\5\0\b6\0\0\0009\0\1\0009\0\2\0\18\2\0\0009\0\3\0'\3\4\0B\0\3\1K\0\1\0\fglobals\vappend\19sessionoptions\bopt\bvim\0", "config", "neovim-project")
+time([[Config for neovim-project]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
