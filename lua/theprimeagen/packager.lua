@@ -43,18 +43,6 @@ return require('packer').startup(function(use)
     }
     use('nvim-lua/popup.nvim')
     -- use('frenchtoasters/telescope-kubectl.nvim')
-    use({
-      "coffebar/neovim-project",
-      config = function()
-        -- enable saving the state of plugins in the session
-        vim.opt.sessionoptions:append("globals") -- save global variables that start with an uppercase letter and contain at least one lowercase letter.
-      end,
-      requires = {
-        { "nvim-lua/plenary.nvim" },
-        { "nvim-telescope/telescope.nvim", tag = "0.1.4" },
-        { "Shatur/neovim-session-manager" },
-      }
-    })
 
     use {
       "nvim-neo-tree/neo-tree.nvim",
@@ -66,5 +54,6 @@ return require('packer').startup(function(use)
         -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
       }
     }
+    use {"mfussenegger/nvim-dap"}
 end)
 

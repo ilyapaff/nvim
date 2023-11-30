@@ -1,3 +1,3 @@
 -- Запуск nvim tree
-vim.cmd("Neotree")
+-- vim.cmd("Neotree")
 

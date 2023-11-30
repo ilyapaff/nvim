@@ -41,3 +41,7 @@ end)
 
 vim.keymap.set("n", "<C-j>", "jzz")
 vim.keymap.set("n", "<C-k>", "kzz")
+
+vim.keymap.set("n", "<leader>o", vim.cmd.Neotree)
+
+
