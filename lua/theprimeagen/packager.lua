@@ -55,5 +55,8 @@ return require('packer').startup(function(use)
       }
     }
     use {"mfussenegger/nvim-dap"}
+    use {"cljoly/telescope-repo.nvim"}
+    use {"towolf/vim-helm"}
+    use {"preservim/tagbar"}
 end)
 
