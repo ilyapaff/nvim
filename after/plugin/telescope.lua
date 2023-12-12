@@ -8,7 +8,28 @@ local builtin = require('telescope.builtin')
 -- 		}
 -- 	},
 -- }
-
+require("telescope").setup {
+  defaults = {
+    initial_mode = "normal",
+  };
+  pickers = {
+    find_files = {
+      initial_mode = "insert",
+    },
+  },
+  extensions = {
+    repo = {
+      list = {
+        fd_opts = {
+          "--no-ignore-vcs",
+        },
+        search_dirs = {
+          "~/IdeaProjects",
+        },
+      },
+    },
+  },
+}
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
@@ -24,3 +45,6 @@ end)
 -- require'telescope'.extensions.project.project{}
 
 vim.keymap.set('n', '<C-e>', builtin.oldfiles, {})
+vim.keymap.set('n', '<leader>fd', '<cmd>Telescope diagnostics<cr>', {})
+
+require'telescope'.load_extension'repo'
