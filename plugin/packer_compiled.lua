@@ -169,6 +169,16 @@ _G.packer_plugins = {
     path = "/home/ilya/.local/share/nvim/site/pack/packer/start/ripgrep",
     url = "https://github.com/BurntSushi/ripgrep"
   },
+  tagbar = {
+    loaded = true,
+    path = "/home/ilya/.local/share/nvim/site/pack/packer/start/tagbar",
+    url = "https://github.com/preservim/tagbar"
+  },
+  ["telescope-repo.nvim"] = {
+    loaded = true,
+    path = "/home/ilya/.local/share/nvim/site/pack/packer/start/telescope-repo.nvim",
+    url = "https://github.com/cljoly/telescope-repo.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/ilya/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -183,6 +193,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/ilya/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-helm"] = {
+    loaded = true,
+    path = "/home/ilya/.local/share/nvim/site/pack/packer/start/vim-helm",
+    url = "https://github.com/towolf/vim-helm"
   }
 }
 
