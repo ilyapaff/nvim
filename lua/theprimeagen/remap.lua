@@ -44,4 +44,6 @@ vim.keymap.set("n", "<C-k>", "kzz")
 
 vim.keymap.set("n", "<leader>o", vim.cmd.Neotree)
 
+vim.keymap.set("n", "<leader>gu", vim.cmd.TagbarToggle)
+
 
