@@ -48,3 +48,4 @@ vim.keymap.set('n', '<C-e>', builtin.oldfiles, {})
 vim.keymap.set('n', '<leader>fd', '<cmd>Telescope diagnostics<cr>', {})
 
 require'telescope'.load_extension'repo'
+require('telescope').load_extension('dap')
