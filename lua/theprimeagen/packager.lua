@@ -54,9 +54,13 @@ return require('packer').startup(function(use)
         -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
       }
     }
-    use {"mfussenegger/nvim-dap"}
     use {"cljoly/telescope-repo.nvim"}
     use {"towolf/vim-helm"}
     use {"preservim/tagbar"}
+
+
+    -- Дебагер
+    use {"mfussenegger/nvim-dap"}
+    use {"leoluz/nvim-dap-go"}
 end)
 
