@@ -41,23 +41,25 @@ require('dap-go').setup {
 }
 require("dapui").setup()
 -- Используется Телескоп, подгрузка его расширения в файле Телескопа
-vim.keymap.set("n", "<leader>nn", function() require('dap').toggle_breakpoint() end)
-vim.keymap.set("n", "<leader>nf", function() require'telescope'.extensions.dap.frames{} end)
-vim.keymap.set("n", "<leader>nb", function() require'telescope'.extensions.dap.list_breakpoints{} end)
-vim.keymap.set("n", "<leader>nc", function()
+vim.keymap.set("n", "<leader>bf", function() require'telescope'.extensions.dap.frames{} end)
+vim.keymap.set("n", "<leader>bl", function() require'telescope'.extensions.dap.list_breakpoints{} end)
+vim.keymap.set("n", "<leader>be", function()
   require'dap'.close{}
   require'dapui'.close()
 end)
 
-vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
+vim.keymap.set('n', '<leader>dn', function()
+  require('dap').continue()
+end)
 vim.keymap.set('n', '<F6>', function() require('dap').step_over() end)
 vim.keymap.set('n', '<F7>', function() require('dap').step_into() end)
 vim.keymap.set('n', '<F8>', function() require('dap').step_out() end)
-vim.keymap.set('n', '<leader>b', function() require('dap').toggle_breakpoint() end)
+vim.keymap.set('n', '<leader>bb', function() require('dap').toggle_breakpoint() end)
 vim.keymap.set('n', '<leader>B', function() require('dap').set_breakpoint() end)
-vim.keymap.set('n', '<leader>nl', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
+vim.keymap.set('n', '<leader>dl', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
 vim.keymap.set('n', '<leader>dr', function() require('dap').repl.open() end)
 vim.keymap.set('n', '<leader>dl', function() require('dap').run_last() end)
+vim.keymap.set('n', '<leader>dc', function() require"dap".terminate() end)
 vim.keymap.set({'n', 'v'}, '<leader>dh', function()
   require('dap.ui.widgets').hover()
 end)
@@ -83,3 +85,4 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
+vim.keymap.set('n', '<leader>du', function() dapui.toggle() end)
