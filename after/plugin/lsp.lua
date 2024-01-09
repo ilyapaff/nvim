@@ -1,7 +1,4 @@
 local lsp_zero = require('lsp-zero')
-local cmp = require('cmp')
-local cmp_format = require('lsp-zero').cmp_format()
-local cmp_action = require('lsp-zero').cmp_action()
 local configs = require('lspconfig.configs')
 local lspconfig = require('lspconfig')
 local util = require('lspconfig.util')
@@ -91,33 +88,6 @@ require("mason-lspconfig").setup({
 
     end
   },
-})
-
-
-cmp.setup({
-  mapping = cmp.mapping.preset.insert({
-    ['<CR>'] = cmp.mapping.confirm({ select = false }),
-    -- Ctrl+Space to trigger completion menu
-    ['<C-Space>'] = cmp.mapping.complete(),
-
-    -- Navigate between snippet placeholder
-    ['<C-f>'] = cmp_action.luasnip_jump_forward(),
-    ['<C-b>'] = cmp_action.luasnip_jump_backward(),
-
-    -- Scroll up and down in the completion documentation
-    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-d>'] = cmp.mapping.scroll_docs(4),
-  }),
-  window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
-  },
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'buffer' },
-  },
-  --- (Optional) Show source name in completion menu
-  formatting = cmp_format,
 })
 
 
