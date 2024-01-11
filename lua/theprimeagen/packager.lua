@@ -78,5 +78,8 @@ return require('packer').startup(function(use)
       'tzachar/cmp-tabnine',
       run='./install.sh'
     }
+
+    -- Поддержка .env
+    use {'tpope/vim-dotenv'}
 end)
 

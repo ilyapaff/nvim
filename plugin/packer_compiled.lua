@@ -221,6 +221,11 @@ _G.packer_plugins = {
     path = "/home/ilya/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
   },
+  ["vim-dotenv"] = {
+    loaded = true,
+    path = "/home/ilya/.local/share/nvim/site/pack/packer/start/vim-dotenv",
+    url = "https://github.com/tpope/vim-dotenv"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/home/ilya/.local/share/nvim/site/pack/packer/start/vim-fugitive",
