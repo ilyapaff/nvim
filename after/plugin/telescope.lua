@@ -9,37 +9,26 @@ local builtin = require('telescope.builtin')
 -- 	},
 -- }
 
-local telescopeConfig = require("telescope.config")
--- Clone the default Telescope configuration
-local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
-
--- I want to search in hidden/dot files.
-table.insert(vimgrep_arguments, "--hidden")
--- I don't want to search in the `.git` directory.
-table.insert(vimgrep_arguments, "--glob")
-table.insert(vimgrep_arguments, "!**/.git/*")
-
 require("telescope").setup {
   defaults = {
     initial_mode = "normal",
     -- `hidden = true` is not supported in text grep commands.
     hidden = true,
-    vimgrep_arguments = vimgrep_arguments,
-    file_ignore_patterns = {
-      "node_modules", "build", "dist", "yarn.lock"
+    vimgrep_arguments = {
+        'rg',
+        '--color=never',
+        '--no-heading',
+        '--with-filename',
+        '--line-number',
+        '--column',
+        '--smart-case',
+        '--hidden',
     },
   };
   pickers = {
     find_files = {
       initial_mode = "insert",
       hidden = true,
-      -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
-      find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
-    },
-    live_grep = {
-      additional_args = function(_ts)
-        return {"--hidden"}
-      end
     },
   },
   extensions = {
