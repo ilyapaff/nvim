@@ -45,3 +45,8 @@ parser_config.gotmpl = {
   used_by = {"gohtmltmpl", "gotexttmpl", "gotmpl", "yaml"}
 }
 
+-- задаю фолдинг на TS
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.cmd([[set nofoldenable]])
+
