@@ -51,4 +51,6 @@ vim.keymap.set("n", "<leader>o", vim.cmd.Neotree)
 
 vim.keymap.set("n", "<leader>gu", vim.cmd.TagbarToggle)
 
+-- Копирует полный путь до файла текущего буфера
+vim.keymap.set("n", "<leader>cp", vim.cmd([[ let @+ = expand('%:p') ]]))
 
