@@ -140,10 +140,10 @@ set('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
 -- Magic buffer-picking mode
 set('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
 -- Sort automatically by...
-set('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
-set('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
-set('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
-set('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
+-- set('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
+-- set('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
+-- set('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
+-- set('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
 
 -- Other:
 -- :BarbarEnable - enables barbar (enabled by default)
