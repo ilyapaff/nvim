@@ -59,7 +59,14 @@ return require('packer').startup(function(use)
         -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
       }
     }
+    -- Project
     use {"cljoly/telescope-repo.nvim"}
+    use { 'nvim-telescope/telescope-project.nvim' }
+    use {
+      'nvim-telescope/telescope-file-browser.nvim',
+      requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+    }
+
     use {"towolf/vim-helm"}
     use {"preservim/tagbar"}
 

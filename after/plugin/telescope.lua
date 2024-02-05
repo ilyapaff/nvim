@@ -1,4 +1,5 @@
 local builtin = require('telescope.builtin')
+local project_actions = require("telescope._extensions.project.actions")
 -- local tele = require('telescope')
 -- tele.load_extension('k8s_commands')
 -- tele.setup {
@@ -8,7 +9,6 @@ local builtin = require('telescope.builtin')
 -- 		}
 -- 	},
 -- }
-
 require("telescope").setup {
   defaults = {
     initial_mode = "normal",
@@ -42,6 +42,26 @@ require("telescope").setup {
         },
       },
     },
+    project = {
+     --  base_dirs = {
+     --    '~/dev/src',
+     --    {'~/dev/src2'},
+     --    {'~/dev/src3', max_depth = 4},
+     --    {path = '~/dev/src4'},
+     --    {path = '~/dev/src5', max_depth = 2},
+     --  },
+      hidden_files = true, -- default: false
+      theme = "dropdown",
+      order_by = "asc",
+      search_by = "title",
+     -- sync_with_nvim_tree = true, -- default false
+      -- default for on_project_selected = find project files
+      on_project_selected = function(prompt_bufnr)
+        -- Do anything you want in here. For example:
+        project_actions.change_working_directory(prompt_bufnr, false)
+        require("harpoon.ui").nav_file(1)
+      end
+    }
   },
 }
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
@@ -50,6 +70,8 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>fj', builtin.jumplist, {})
+
+
 vim.keymap.set('n', '<leader>fs', function()
   builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
@@ -64,3 +86,10 @@ vim.keymap.set('n', '<leader>fd', '<cmd>Telescope diagnostics<cr>', {})
 
 require'telescope'.load_extension'repo'
 require('telescope').load_extension('dap')
+
+-- Project
+require('telescope').load_extension('project')
+vim.keymap.set('n', '<leader>fp', function ()
+  require'telescope'.extensions.project.project{display_type = 'full'}
+end)
+
