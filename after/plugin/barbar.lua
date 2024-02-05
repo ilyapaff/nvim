@@ -50,7 +50,7 @@ require('barbar').setup {
     -- Configure the icons on the bufferline when modified or pinned.
     -- Supports all the base icon options.
     modified = {button = '●'},
-    pinned = {button = '', filename = false},
+    pinned = {button = '', filename = true},
 
     -- Use a preconfigured buffer appearance— can be 'default', 'powerline', or 'slanted'
     preset = 'default',
@@ -65,7 +65,7 @@ require('barbar').setup {
 
   -- If true, new buffers will be inserted at the start/end of the list.
   -- Default is to insert after current buffer.
-  insert_at_end = false,
+  insert_at_end = true,
   insert_at_start = false,
 
   -- Sets the maximum padding width with which to surround each tab
@@ -87,16 +87,16 @@ require('barbar').setup {
   semantic_letters = true,
 
   -- Set the filetypes which barbar will offset itself for
-  sidebar_filetypes = {
-    -- Use the default values: {event = 'BufWinLeave', text = nil}
-    NvimTree = true,
-    -- Or, specify the text used for the offset:
-    undotree = {text = 'undotree'},
-    -- Or, specify the event which the sidebar executes when leaving:
-    ['neo-tree'] = {event = 'BufWipeout'},
-    -- Or, specify both
-    Outline = {event = 'BufWinLeave', text = 'symbols-outline'},
-  },
+  --sidebar_filetypes = {
+  --  -- Use the default values: {event = 'BufWinLeave', text = nil}
+  --  NvimTree = true,
+  --  -- Or, specify the text used for the offset:
+  --  undotree = {text = 'undotree'},
+  --  -- Or, specify the event which the sidebar executes when leaving:
+  --  ['neo-tree'] = {event = 'BufWipeout'},
+  --  -- Or, specify both
+  --  Outline = {event = 'BufWinLeave', text = 'symbols-outline'},
+  --},
 
   -- New buffer letters are assigned in this order. This order is
   -- optimal for the qwerty keyboard layout but might need adjustment
