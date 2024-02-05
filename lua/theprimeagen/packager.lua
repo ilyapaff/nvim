@@ -81,5 +81,8 @@ return require('packer').startup(function(use)
 
     -- Поддержка .env
     use {'tpope/vim-dotenv'}
+
+    -- Управление терминалами
+    use {"akinsho/toggleterm.nvim", tag = '*'}
 end)
 
