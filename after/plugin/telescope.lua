@@ -65,7 +65,7 @@ require("telescope").setup {
   },
 }
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<C-p>', builtin.git_files, {})
+vim.keymap.set('n', '<leader>fa', builtin.git_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
@@ -86,6 +86,7 @@ vim.keymap.set('n', '<leader>fd', '<cmd>Telescope diagnostics<cr>', {})
 
 require'telescope'.load_extension'repo'
 require('telescope').load_extension('dap')
+require('telescope').load_extension('telescope-tabs')
 
 -- Project
 require('telescope').load_extension('project')
@@ -93,3 +94,15 @@ vim.keymap.set('n', '<leader>fp', function ()
   require'telescope'.extensions.project.project{display_type = 'full'}
 end)
 
+require("telescope-tabs").setup({
+	-- entry_formatter = function(tab_id, buffer_ids, file_names, file_paths, is_current)
+	-- 	local entry_string = table.concat(vim.tbl_map(function(v)
+	-- 		return vim.fn.fnamemodify(v, ":.")
+	-- 	end, file_paths), ', ')
+	-- 	return string.format('%d: %s%s', tab_id, entry_string, is_current and ' <' or '')
+	-- end
+})
+
+vim.keymap.set('n', '<leader>ft', function()
+  require('telescope-tabs').list_tabs()
+end)

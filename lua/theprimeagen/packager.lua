@@ -13,6 +13,15 @@ return require('packer').startup(function(use)
         requires = { {'nvim-lua/plenary.nvim'}, {'BurntSushi/ripgrep'} }
 
     }
+    -- Project
+    use {"cljoly/telescope-repo.nvim"}
+    use { 'nvim-telescope/telescope-project.nvim' }
+    use {
+      'nvim-telescope/telescope-file-browser.nvim',
+      requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+    }
+    use {'LukasPietzschmann/telescope-tabs'}
+
     use('Mofiqul/dracula.nvim')
 
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
@@ -59,13 +68,6 @@ return require('packer').startup(function(use)
         -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
       }
     }
-    -- Project
-    use {"cljoly/telescope-repo.nvim"}
-    use { 'nvim-telescope/telescope-project.nvim' }
-    use {
-      'nvim-telescope/telescope-file-browser.nvim',
-      requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
-    }
 
     use {"towolf/vim-helm"}
     use {"preservim/tagbar"}
@@ -91,5 +93,11 @@ return require('packer').startup(function(use)
 
     -- Управление терминалами
     use {"akinsho/toggleterm.nvim", tag = '*'}
+
+
+    -- Управление вкладками
+    use 'lewis6991/gitsigns.nvim' -- OPTIONAL: for git status
+    use 'romgrk/barbar.nvim'
+
 end)
 
