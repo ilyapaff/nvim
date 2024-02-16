@@ -86,6 +86,11 @@ _G.packer_plugins = {
     path = "/home/ilya/.local/share/nvim/site/pack/packer/start/ansible-vim",
     url = "https://github.com/pearofducks/ansible-vim"
   },
+  ["barbar.nvim"] = {
+    loaded = true,
+    path = "/home/ilya/.local/share/nvim/site/pack/packer/start/barbar.nvim",
+    url = "https://github.com/romgrk/barbar.nvim"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/ilya/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
@@ -105,6 +110,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/ilya/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
+  },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/home/ilya/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
   },
   harpoon = {
     loaded = true,
