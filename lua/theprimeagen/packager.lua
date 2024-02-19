@@ -81,6 +81,8 @@ return require('packer').startup(function(use)
 
     -- автоматические закрывающиеся скобки
     use {'windwp/nvim-autopairs'}
+    -- Команды управления скобками
+    use {'tpope/vim-surround'}
 
     -- ИИ автодополнения
     use {
