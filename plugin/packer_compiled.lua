@@ -131,6 +131,11 @@ _G.packer_plugins = {
     path = "/home/ilya/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
     url = "https://github.com/VonHeikemen/lsp-zero.nvim"
   },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/home/ilya/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/home/ilya/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
@@ -276,15 +281,15 @@ _G.packer_plugins = {
     path = "/home/ilya/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
-  ["vim-helm"] = {
-    loaded = true,
-    path = "/home/ilya/.local/share/nvim/site/pack/packer/start/vim-helm",
-    url = "https://github.com/towolf/vim-helm"
-  },
   ["vim-surround"] = {
     loaded = true,
     path = "/home/ilya/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://github.com/tpope/vim-surround"
+  },
+  ["yaml-companion.nvim"] = {
+    loaded = true,
+    path = "/home/ilya/.local/share/nvim/site/pack/packer/start/yaml-companion.nvim",
+    url = "https://github.com/someone-stole-my-name/yaml-companion.nvim"
   }
 }
 

@@ -88,6 +88,7 @@ require'telescope'.load_extension'repo'
 require('telescope').load_extension('dap')
 require('telescope').load_extension('telescope-tabs')
 require("telescope").load_extension("scope")
+require("telescope").load_extension("yaml_schema")
 
 -- Project
 require('telescope').load_extension('project')

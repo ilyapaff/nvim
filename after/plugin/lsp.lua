@@ -27,6 +27,42 @@ end)
 --     client.server_capabilities.semanticTokensProvider = nil
 --   end,
 -- })
+--
+
+local yamlcfg = require("yaml-companion").setup{
+  builtin_matchers = {
+    kubernetes = { enabled = true },
+  },
+
+  -- Additional schemas available in Telescope picker
+  schemas = {
+    {
+      name = "Flux GitRepository",
+      uri = "https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/main/gitrepository-source-v1.json",
+    }
+  },
+
+  -- Pass any additional options that will be merged in the final LSP config
+  -- Defaults: https://github.com/someone-stole-my-name/yaml-companion.nvim/blob/main/lua/yaml-companion/config.lua
+  lspconfig = {
+    settings = {
+      yaml = {
+        validate = true,
+        schemaStore = {
+          enable = false,
+          url = "",
+        },
+        customTags = {
+          "!reference sequence",
+        },
+        schemas = {
+          ['https://json.schemastore.org/github-workflow.json'] = '.github/workflows/*.{yml,yaml}',
+        }
+      }
+    }
+  }
+}
+
 
 require("mason").setup()
 require("mason-lspconfig").setup({
@@ -68,25 +104,28 @@ require("mason-lspconfig").setup({
         end,
       })
     end,
-    helm_ls = function()
-      if not configs.helm_ls then
-        configs.helm_ls = {
-          default_config = {
-            cmd = {"helm_ls", "serve"},
-            filetypes = {'helm'},
-            root_dir = function(fname)
-              return util.root_pattern('Chart.yaml')(fname)
-            end,
-          },
-        }
-      end
+    yamlls = function()
+      require('lspconfig').yamlls.setup(yamlcfg)
+    end,
+    -- helm_ls = function()
+    --   if not configs.helm_ls then
+    --     configs.helm_ls = {
+    --       default_config = {
+    --         cmd = {"helm_ls", "serve"},
+    --         filetypes = {'helm'},
+    --         root_dir = function(fname)
+    --           return util.root_pattern('Chart.yaml')(fname)
+    --         end,
+    --       },
+    --     }
+    --   end
 
-      lspconfig.helm_ls.setup {
-        filetypes = {"helm"},
-        cmd = {"helm_ls", "serve"},
-      }
+    --   lspconfig.helm_ls.setup {
+    --     filetypes = {"helm"},
+    --     cmd = {"helm_ls", "serve"},
+    --   }
 
-    end
+    -- end
   },
 })
 

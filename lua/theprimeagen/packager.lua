@@ -69,7 +69,6 @@ return require('packer').startup(function(use)
       }
     }
 
-    use {"towolf/vim-helm"}
     use {"preservim/tagbar"}
 
 
@@ -103,5 +102,22 @@ return require('packer').startup(function(use)
 
     -- Asciidoc 
     use {'shuntaka9576/preview-asciidoc.vim', requires = {'vim-denops/denops.vim'}}
+
+    -- yaml
+    use {
+      "someone-stole-my-name/yaml-companion.nvim",
+      requires = {
+        { "neovim/nvim-lspconfig" },
+        { "nvim-lua/plenary.nvim" },
+        { "nvim-telescope/telescope.nvim" },
+      },
+    }
+
+    use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
+
+
 end)
 
