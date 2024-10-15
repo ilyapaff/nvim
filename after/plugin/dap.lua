@@ -1,3 +1,13 @@
+local function get_arguments()
+  return coroutine.create(function(dap_run_co)
+    local args = {}
+    vim.ui.input({ prompt = "Args: " }, function(input)
+      args = vim.split(input or "", " ")
+      coroutine.resume(dap_run_co, args)
+    end)
+  end)
+end
+
 require('dap-go').setup {
   -- Additional dap configurations can be added.
   -- dap_configurations accepts a list of tables where each entry
@@ -14,6 +24,13 @@ require('dap-go').setup {
         host = "127.0.0.1",
         port = "38697"
       }
+    },
+    {
+      type = "go",
+      name = "Debug module with (Arguments)",
+      request = "launch",
+      program = "${fileDirname}",
+      args = get_arguments,
     },
   },
    -- delve configurations

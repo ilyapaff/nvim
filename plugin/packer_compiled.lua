@@ -221,6 +221,11 @@ _G.packer_plugins = {
     path = "/home/ilya/.local/share/nvim/site/pack/packer/start/ripgrep",
     url = "https://github.com/BurntSushi/ripgrep"
   },
+  ["schemastore.nvim"] = {
+    loaded = true,
+    path = "/home/ilya/.local/share/nvim/site/pack/packer/start/schemastore.nvim",
+    url = "https://github.com/b0o/schemastore.nvim"
+  },
   ["scope.nvim"] = {
     loaded = true,
     path = "/home/ilya/.local/share/nvim/site/pack/packer/start/scope.nvim",

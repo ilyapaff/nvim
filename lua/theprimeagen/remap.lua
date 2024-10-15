@@ -50,6 +50,8 @@ vim.keymap.set("n", "<C-k>", "<C-w>k")
 
 vim.keymap.set("n", "<leader>o", vim.cmd.Neotree)
 
+vim.keymap.set("n", "<leader>c", vim.cmd.nohlsearch)
+
 vim.keymap.set("n", "<leader>gu", vim.cmd.TagbarToggle)
 
 -- Копирует полный путь до файла текущего буфера

@@ -112,6 +112,8 @@ return require('packer').startup(function(use)
         { "nvim-telescope/telescope.nvim" },
       },
     }
+    use {"b0o/schemastore.nvim"}
+
 
     use {
       'nvim-lualine/lualine.nvim',

@@ -39,7 +39,15 @@ local yamlcfg = require("yaml-companion").setup{
     {
       name = "Flux GitRepository",
       uri = "https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/main/gitrepository-source-v1.json",
-    }
+    },
+    {
+      name = "Kubernetes 1.22.4",
+      uri = "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.22.4-standalone-strict/all.json",
+    },
+    {
+      name = "gitlab-ci",
+      uri = "https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json",
+    },
   },
 
   -- Pass any additional options that will be merged in the final LSP config
@@ -55,8 +63,18 @@ local yamlcfg = require("yaml-companion").setup{
         customTags = {
           "!reference sequence",
         },
-        schemas = {
-          ['https://json.schemastore.org/github-workflow.json'] = '.github/workflows/*.{yml,yaml}',
+        schemas = require('schemastore').yaml.schemas {
+          replace = {
+            ['gitlab-ci'] = {
+              description = 'configuring Gitlab CI',
+              fileMatch = {
+                '*.gitlab-ci.yml',
+                '*gitlab-ci**',
+              },
+              name = 'gitlab-ci',
+              url = 'https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json',
+            },
+          },
         }
       }
     }
