@@ -57,8 +57,8 @@ local yamlcfg = require("yaml-companion").setup{
       yaml = {
         validate = true,
         schemaStore = {
-          enable = false,
-          url = "",
+          enable = true,
+          url = "https://www.schemastore.org/api/json/catalog.json",
         },
         customTags = {
           "!reference sequence",
@@ -122,8 +122,20 @@ require("mason-lspconfig").setup({
         end,
       })
     end,
-    yamlls = function()
-      require('lspconfig').yamlls.setup(yamlcfg)
+
+    pylsp = function ()
+      require('lspconfig').pylsp.setup{
+        settings = {
+          pylsp = {
+            plugins = {
+              pycodestyle = {
+                ignore = {'W391'},
+                maxLineLength = 100
+              }
+            }
+          }
+        }
+      }
     end,
     -- helm_ls = function()
     --   if not configs.helm_ls then
@@ -144,6 +156,48 @@ require("mason-lspconfig").setup({
     --   }
 
     -- end
+    helm_ls = function()
+      if not configs.helm_ls then
+        configs.helm_ls = {
+          default_config = {
+            cmd = {"helm_ls", "serve"},
+            filetypes = {'helm'},
+            root_dir = function(fname)
+              return util.root_pattern('Chart.yaml')(fname)
+            end,
+          },
+          logLevel = "info",
+          valuesFiles = {
+            mainValuesFile = "values.yaml",
+            lintOverlayValuesFile = "values.lint.yaml",
+            additionalValuesFilesGlobPattern = "values*.yaml"
+          },
+          yamlls = {
+            enabled = false,
+            --enabledForFilesGlob = "*.{yaml,yml}",
+            --diagnosticsLimit = 50,
+            --showDiagnosticsDirectly = false,
+            --path = "yaml-language-server",
+            --config = {
+            --  schemas = {
+            --    kubernetes = "templates/**",
+            --    ["values.schema.json"] = "values*.{yaml,yml}",
+            --  },
+            --  completion = true,
+            --  hover = true,
+            --  -- any other config from https://github.com/redhat-developer/yaml-language-server#language-server-settings
+            --}
+          }
+        }
+      end
+      lspconfig.helm_ls.setup {
+        filetypes = {"helm"},
+        cmd = {"helm_ls", "serve"},
+      }
+    end,
+    yamlls = function()
+      require('lspconfig').yamlls.setup(yamlcfg)
+    end,
   },
 })
 

@@ -1,6 +1,7 @@
 vim.filetype.add({
  filename = {
    [os.getenv('HOME') .. '/.kube/config'] = 'yaml',
+   ['.*ya?ml%.tpl'] = 'yaml',
    ['go.mod'] = 'gomod'
  },
 })
@@ -14,18 +15,15 @@ vim.api.nvim_create_autocmd("FileType", {
 	end
 })
 
-vim.api.nvim_create_autocmd(
-    {
-        "BufNewFile",
-        "BufRead",
-    },
-    {
-        pattern = "*.yaml,*.yml",
-        callback = function()
-            if vim.fn.search("{{.\\+}}", "nw") ~= 0 then
-                local buf = vim.api.nvim_get_current_buf()
-                vim.api.nvim_buf_set_option(buf, "filetype", "helm")
-            end
-        end
-    }
-)
+vim.filetype.add({
+  extension = {
+    gotmpl = 'gotmpl',
+  },
+  pattern = {
+    [".*/templates/.*%.tpl"] = "helm",
+    [".*/templates/.*%.ya?ml"] = "helm",
+    ["helmfile.*%.ya?ml"] = "helm",
+    [".*/values.*%.ya?ml"] = "helm",
+  },
+})
+

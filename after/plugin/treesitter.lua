@@ -1,6 +1,6 @@
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "go", "bash", "dockerfile", "gomod", "gosum", "jq", "json", "json5", "yaml", "xml" },
+  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "go", "bash", "dockerfile", "gomod", "gosum", "jq", "json", "json5", "yaml", "xml", "gotmpl", "helm" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -42,7 +42,7 @@ parser_config.gotmpl = {
     files = {"src/parser.c"}
   },
   filetype = "gotmpl",
-  used_by = {"gohtmltmpl", "gotexttmpl", "gotmpl", "yaml"}
+  used_by = {"gohtmltmpl", "gotexttmpl", "gotmpl"}
 }
 
 -- задаю фолдинг на TS
